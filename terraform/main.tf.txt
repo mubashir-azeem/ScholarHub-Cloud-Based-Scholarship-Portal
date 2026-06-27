@@ -1,0 +1,56 @@
+provider "aws" {
+  region = "eu-north-1"
+}
+
+resource "aws_security_group" "scholarhub_sg" {
+  name = "ScholarHub-SG"
+
+  ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+
+resource "aws_instance" "scholarhub_ec2" {
+  ami           = "ami-xxxxxxxx"
+  instance_type = "t3.micro"
+
+  security_groups = [
+    aws_security_group.scholarhub_sg.name
+  ]
+
+  tags = {
+    Name = "ScholarHub-EC2"
+  }
+}
+
+resource "aws_s3_bucket" "scholarhub_docs" {
+  bucket = "scholarhub-documents"
+}
+
+resource "aws_db_instance" "scholarhub_rds" {
+  allocated_storage = 20
+  engine            = "mysql"
+  instance_class    = "db.t3.micro"
+  db_name           = "scholarhub"
+  username          = "admin"
+  password          = "Password123"
+
+  skip_final_snapshot = true
+}
