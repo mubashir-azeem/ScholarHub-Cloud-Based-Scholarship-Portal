@@ -3,6 +3,22 @@
 A complete cloud-based Scholarship Management Portal developed using **PHP & MySQL** and deployed on **Amazon Web Services (AWS)**. The project demonstrates real-world cloud deployment, infrastructure management, monitoring, storage, and database integration.
 
 ---
+## Topics
+
+aws
+amazon-ec2
+amazon-rds
+amazon-s3
+cloudfront
+cloudwatch
+terraform
+php
+mysql
+apache
+cloud-computing
+scholarship-management
+
+---
 
 ## 🌐 Live Deployment
 
