@@ -8,7 +8,8 @@ A complete cloud-based Scholarship Management Portal developed using **PHP & MyS
 
 **AWS EC2 Hosted Application**
 
-http://YOUR-EC2-PUBLIC-IP/
+http://51.20.184.180/
+http://ec2-51-20-184-180.eu-north-1.compute.amazonaws.com/
 
 > Hosted on Amazon EC2 with Apache Web Server
 
